@@ -1,0 +1,90 @@
+body {
+    background: linear-gradient(296deg, #32c9a3, #8f32c9);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    -o-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+
+.container {
+    margin-top: 9vw;
+    margin-left: 10vw;
+}
+
+h1 {
+    color: white;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+h5 {
+    margin-top: 15px  !important;
+    margin-bottom: 0px !important;
+    margin-left: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0 !important;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    margin-left: 5px;
+    padding: 0 !important;
+}
+
+i {
+    font-size: 40px;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+
+.row {
+    margin-top: 30px;
+}
+
+.accessory {
+    background-color: rgba(255, 255, 255, 0.564);
+    height: 150px;
+    width: 150px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+    display:inline-block;
+
+}
+
+
+@media (max-width: 768px) { 
+    .accessory {
+        width: 100%;
+    }
+ }
