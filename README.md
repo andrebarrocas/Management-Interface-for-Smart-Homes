@@ -4,7 +4,7 @@ WIP
 - [ ] **Platform**
     - [x] Initial "server" structure
     - [x] Server abstraction from devices
-    - [ ] Individual lamps gets/sets
+    - [x] Individual lamps gets/sets
     - [ ] Auto Generate DEVICE_ID
     - [ ] Django Implementation
     - [ ] Add more device types
