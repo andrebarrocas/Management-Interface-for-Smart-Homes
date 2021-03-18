@@ -1,18 +1,21 @@
 import requests
+from yeelight import Bulb
 
-NAME = "lamp2"
+NAME = "yeelight"
 DEVICE_TYPE = "Lamp"
-DEVICE_ID = "1234"
-state = "off"
+DEVICE_ID = "5678"
+
+bulb = Bulb("192.168.31.171")
 
 def lampget():
+
+
     data = {
         "id": DEVICE_ID,
         "name": NAME,
-        "state": state
+        "state": str(bulb.get_properties()["power"])
     }
     return data
 
-#Para testar, no set podemos simplesmente mudar o valor da variavel state
 def lampset():
-    return "OK"
+    return bulb.toggle().capitalize()

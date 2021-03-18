@@ -19,4 +19,4 @@ def lampget():
     return data
 
 def lampset():
-    return requests.get('http://localhost:8001/setstatus').text
+    return requests.get('http://localhost:8001/setstatus').text.capitalize()
