@@ -8,7 +8,7 @@ WIP
     - [ ] Auto Generate DEVICE_ID
     - [ ] Django Implementation
     - [ ] Add more device types
-    - [ ] Devices automations/integration
+    - [ ] Group devices and create automations
     - [ ] Automatic platform refresh (get timers)
     - [ ] Security concerns (including input sanitization)
     - [ ] (Optional) Code refractoring 
@@ -18,11 +18,11 @@ WIP
     - [x] Initial UI
     - [ ] Device Groups
     - [ ] Turn all on/off
-    - [ ] Upload .py for a new device
+    - [ ] Add new device using .py upload form
 
 - [ ] **Misc**
-    - [x] Report
-    - [ ] Maybe write some documentation
+    - [ ] Report
+
 
 ## Platform basic commands
  - **Get all devices state/info:** 
