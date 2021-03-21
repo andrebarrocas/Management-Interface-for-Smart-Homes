@@ -15,6 +15,3 @@ pip install -r requirements.txt
 
 python manage.py runserver
 
-4. Migrate 
-
-python manage.py migrate
