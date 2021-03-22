@@ -23,6 +23,9 @@ WIP
 - [ ] **Misc**
     - [ ] Report
 
+- [ ] **Questions**
+    - [ ] A command to turn all lights on/off should broadcast all lights with on/off command or should we see which lamps are "on/off" and send the commands to those specific lights? Benchmark timing in both solutions maybe?
+
 
 ## Platform basic commands
  - **Get all devices state/info:** 
