@@ -22,13 +22,17 @@
     <div class="container">
         <h1>Smart Home</h1>
         <div class="row align-items-center">
-            <div class="col-6 col-md-2 p-2 d-flex">
+
+          {% for d in devices %}
+          <div class="col-6 col-md-2 p-2 d-flex">
                 <a id="action" href="#" class="accessory ">
                   <i id="icon" class="far fa-lightbulb"></i>
                   <h5 id="state">{{ light }}</h5>
                   <p>{{ type }}</p>
                 </a>
-            </div>         
+            </div> 
+          {% endfor %}
+
         </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
