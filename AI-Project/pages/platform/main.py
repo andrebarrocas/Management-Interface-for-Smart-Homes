@@ -68,11 +68,18 @@ def getSpecificDevice(id):
 def getDevices():
     reload()
     devices = []
-    for val in mods:  
-        module = __import__(val)
-        if hasattr(module,"lampget"):
-            print(module.lampget())
-            devices.append(module.lampget())
+    error = []
+    for val in mods:
+        try:  
+            module = __import__(val)
+            if hasattr(module,"lampget"):
+                print(module.lampget())
+                devices.append(module.lampget())
+        except:
+            error.append(val)
+            pass
+    #Later on: Add a popup on error
+    print("Error loading the following module:",error)
     return devices
 
 def setDevices(id):
