@@ -25,7 +25,7 @@ def do(path, env):
 # File name of a module:
 __module_file_regexp = "(.+)\.py(c?)$"
 
-def __get_module_names_in_dir(path):
+def get_module_names_in_dir(path):
     """ Returns a set of all module names residing directly in directory "path".
     """
     result = set()
