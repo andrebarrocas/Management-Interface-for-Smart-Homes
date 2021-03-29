@@ -1,6 +1,8 @@
 from .importdir import *
 import sys
 import inspect
+import traceback
+
 
 # if(len(sys.argv) <= 1):
 #     print("Provide -get or -set arg")
@@ -13,13 +15,15 @@ import inspect
 
 PLUGINS = "./devices/"
 
-try:
-    do(PLUGINS, globals())
-except:
-    print("Error loading some devices")
-    print("If needed, use -debug to print full trace")
+def reload():   
+    try:
+        do(PLUGINS, globals())
+    except:
+        print("Error loading some devices")
+        print("If needed, use -debug to print full trace")
 
-mods = get_module_names_in_dir("devices/")
+mods = get_module_names_in_dir(PLUGINS)
+
 
 # if(str(sys.argv[1]) == "-get"):
 #     for val in mods:
@@ -46,6 +50,7 @@ mods = get_module_names_in_dir("devices/")
 
 
 def setSpecificDevice(id):
+    reload()
     for val in mods:  
         module = __import__(val)
         if hasattr(module,"lampset"):
@@ -53,6 +58,7 @@ def setSpecificDevice(id):
                 print(module.lampset())
 
 def getSpecificDevice(id):
+    reload()
     for val in mods:  
         module = __import__(val)
         if hasattr(module,"lampset"):
@@ -60,17 +66,20 @@ def getSpecificDevice(id):
                 print(module.lampget())
 
 def getDevices():
+    reload()
     devices = []
     for val in mods:  
         module = __import__(val)
         if hasattr(module,"lampget"):
-            if hasattr(module,"lampget"):
-                devices.append(module.lampget())
+            print(module.lampget())
+            devices.append(module.lampget())
     return devices
 
 def setDevices(id):
+    reload()
     for val in mods:  
         module = __import__(val)
         if hasattr(module,"lampset"):
             print(module.lampset())
+
 

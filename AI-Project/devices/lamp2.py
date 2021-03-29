@@ -8,8 +8,6 @@ DEVICE_ID = "5678"
 bulb = Bulb("192.168.31.171")
 
 def lampget():
-
-
     data = {
         "id": DEVICE_ID,
         "name": NAME,

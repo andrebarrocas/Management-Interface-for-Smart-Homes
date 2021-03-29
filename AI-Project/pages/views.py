@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from .platform.main import *
 
 
-
 def error404(request, exception):
     return redirect('home')
 def error500(request):

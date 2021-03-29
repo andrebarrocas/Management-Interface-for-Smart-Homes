@@ -2,22 +2,8 @@ document.addEventListener('DOMContentLoaded', addListen, false);
 
 function addListen(){
     document.body.addEventListener("mousemove", hoverMouse($('a')));
-    
-    $( "#action" ).on( "click", function() {
-        console.log("click");
-        if($("#state").text() === "off") {
-            $("#action").css("background-color","rgba(255, 255, 255, 0.9)");
-             $("#state").text("on");
-             $("#icon").removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
-             $("#icon").css("color"," #cca300");
-        } else {
-            $("#action").css("background-color","rgba(255, 255, 255, 0.564)");
-            $("#state").text("off");
-            $("#icon").removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
-            $("#icon").css("color","black");
-        }
-      });
-}
+
+  }
 
 
 
