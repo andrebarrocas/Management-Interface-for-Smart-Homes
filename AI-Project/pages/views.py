@@ -13,9 +13,10 @@ def error403(request, exception):
 def error400(request, exception):
     return redirect('home')          
 
-def homePageView(request,id):
+def homePageView(request,id=None):
     light = "Off"
     t = "Lamp"
     devices = getDevices()
-    setSpecificDevice(id)
+    if not None:
+        setSpecificDevice(id)
     return render(request=request, template_name='index.html', context={"devices": devices})
