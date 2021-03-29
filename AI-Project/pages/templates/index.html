@@ -25,10 +25,10 @@
 
           {% for d in devices %}
           <div class="col-6 col-md-2 p-2 d-flex">
-                <a id="action" href="#" class="accessory ">
+                <a id="action" href="{% url 'home' d.id  %}" class="accessory ">
                   <i id="icon" class="far fa-lightbulb"></i>
-                  <h5 id="state">{{ light }}</h5>
-                  <p>{{ type }}</p>
+                  <h5 id="state">{{ d.state }}</h5>
+                  <p>{{ d.name }}</p>
                 </a>
             </div> 
           {% endfor %}
