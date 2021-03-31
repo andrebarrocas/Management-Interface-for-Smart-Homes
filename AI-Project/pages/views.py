@@ -13,8 +13,6 @@ def error400(request, exception):
     return redirect('home')          
 
 def homePageView(request,id=None):
-    light = "Off"
-    t = "Lamp"
     devices = getDevices()
     if not None:
         setSpecificDevice(id)

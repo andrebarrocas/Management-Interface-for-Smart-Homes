@@ -3,7 +3,6 @@ import sys
 import inspect
 import traceback
 
-
 # if(len(sys.argv) <= 1):
 #     print("Provide -get or -set arg")
 #     sys.exit()
@@ -76,6 +75,7 @@ def getDevices():
                 print(module.lampget())
                 devices.append(module.lampget())
         except:
+            traceback.print_exc()
             error.append(val)
             pass
     #Later on: Add a popup on error
