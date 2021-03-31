@@ -5,8 +5,8 @@ WIP
     - [x] Initial "server" structure
     - [x] Server abstraction from devices
     - [x] Individual lamps gets/sets
+    - [x] Django Implementation
     - [ ] Auto Generate DEVICE_ID
-    - [ ] Django Implementation
     - [ ] Add more device types
     - [ ] Group devices and create automations
     - [ ] Automatic platform refresh (get timers)
@@ -19,6 +19,7 @@ WIP
     - [ ] Device Groups
     - [ ] Turn all on/off
     - [ ] Add new device using .py upload form
+    - [ ] Present an error (banner/notification style) if any module fails to load
 
 - [ ] **Misc**
     - [ ] Report
