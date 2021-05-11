@@ -22,7 +22,7 @@
     <div class="container">
         <h1>Smart Home</h1>
         <div class="row align-items-center">
-
+          {% comment "" %}
           {% for d in devices %}
           <div class="col-6 col-md-2 p-2 d-flex">
                 <a id="action" href="{% url 'home' d.id  %}" class="accessory ">
@@ -32,21 +32,25 @@
                 </a>
             </div> 
           {% endfor %}
+{% endcomment %}
+
 
         </div>
-    </div>
-
-
-
-
-
- 
+        <div class="row align-items-center">
+        <h5>Add new device</h5>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        
+        <div class="col-6 col-md-2 p-2 d-flex">
         <input type="file" name="document">
-        <button type="submit">Upload file</button>
+        </div>
+        <div class="col-6 col-md-2 p-2 d-flex">
+        <button type="submit" >Upload file</button>
+        </div>
       </form>
+        
+
+        
+    </div>
 
 
 
