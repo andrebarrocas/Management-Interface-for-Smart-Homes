@@ -5,8 +5,9 @@ WIP
     - [x] Initial "server" structure
     - [x] Server abstraction from devices
     - [x] Individual lamps gets/sets
+    - [x] Django Implementation
+    - [ ] Thread execution per device (to prevent system hangs)
     - [ ] Auto Generate DEVICE_ID
-    - [ ] Django Implementation
     - [ ] Add more device types
     - [ ] Group devices and create automations
     - [ ] Automatic platform refresh (get timers)
@@ -19,6 +20,7 @@ WIP
     - [ ] Device Groups
     - [ ] Turn all on/off
     - [ ] Add new device using .py upload form
+    - [ ] Present an error (banner/notification style) if any module fails to load
 
 - [ ] **Misc**
     - [ ] Report
@@ -27,7 +29,8 @@ WIP
     - [ ] A command to turn all lights on/off should broadcast all lights with on/off command or should we see which lamps are "on/off" and send the commands to those specific lights? Benchmark timing in both solutions maybe?
 
 
-## Platform basic commands
+## Platform basic commands (DEPRECATED)
+DEPRECATED [Platform only](https://github.com/andrebarrocas/Management-Interface-for-Smart-Homes/tree/main/Platform)
  - **Get all devices state/info:** 
     -  python main.py -get
  - **Set all devices state:** 

@@ -3,9 +3,9 @@ from yeelight import Bulb
 
 NAME = "yeelight"
 DEVICE_TYPE = "Lamp"
-DEVICE_ID = "5678"
+DEVICE_ID = "1112"
 
-bulb = Bulb("192.168.31.171")
+bulb = Bulb("192.168.31.130")
 
 def lampget():
     data = {

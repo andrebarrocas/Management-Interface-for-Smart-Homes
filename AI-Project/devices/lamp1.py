@@ -4,9 +4,8 @@ NAME = "lamp1"
 DEVICE_TYPE = "Lamp"
 DEVICE_ID = "1234"
 
-rget = requests.get('http://localhost:8001/getstatus')
-
 def lampget():
+    rget = requests.get('http://localhost:8001/getstatus')
     if(rget.text == 'true'): 
         state = 'on'
     else: 

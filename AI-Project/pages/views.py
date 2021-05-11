@@ -15,15 +15,13 @@ def error400(request, exception):
 def homePageView(request,id=None):
     light = "Off"
     t = "Lamp"
-    # devices = getDevices()
-    # if not None:
-    #     setSpecificDevice(id)
+    devices = getDevices()
+    if not None:
+        setSpecificDevice(id)
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']   
-        #print(uploaded_file.name)
-        #print(uploaded_file.size)
+        uploaded_file = request.FILES['document']  
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
-    return render(request=request, template_name='index.html')#, context={"devices": devices})#,'form': form})
+    return render(request=request, template_name='index.html', context={"devices": devices})
 
 
