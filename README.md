@@ -43,4 +43,5 @@ DEPRECATED [Platform only](https://github.com/andrebarrocas/Management-Interface
      - python main.py [-set,-get] -debug
 
 
-        
+## Run Lamp       
+java -jar Lamp.jar
