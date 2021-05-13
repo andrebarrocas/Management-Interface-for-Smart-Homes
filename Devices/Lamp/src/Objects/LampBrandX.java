@@ -26,8 +26,10 @@ public class LampBrandX implements RGBLamp  {
 	public String background;
 	public String buttonText;;
 	
+	
 	private LampBrandX() {
 	}
+	
 	
 	public static LampBrandX getInstance() {
 		if (singleton == null) singleton = new LampBrandX();
