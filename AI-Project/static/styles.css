@@ -49,14 +49,14 @@ h5 {
     padding: 0 !important;
 }
 
-p {
+p, li {
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
     margin-left: 5px;
     padding: 0 !important;
 }
 
-i {
+i.icon {
     font-size: 40px;
     padding-top: 15px;
     padding-left: 5px;
@@ -80,6 +80,51 @@ a {
     color: black !important;
     display:inline-block;
 
+}
+
+.settings {
+   margin: 15px;
+}
+
+.upload-plugin {
+    right: 30px;
+    top: 25px;
+    position: absolute;
+}
+
+.upload-plugin i {
+    color: white;
+}
+.upload-plugin div.text{
+    font-family: 'Poppins', sans-serif;
+    float: right;
+    font-weight: 400;
+    color: white;
+    margin-left: 5px;
+}
+
+.upload-settings button.btn:active {
+    outline:none !important;
+}
+
+.modal-body form {
+    margin-top: 30px;
+}
+
+.modal-content {
+    border-radius: 25px;
+}
+
+.modal-body {
+    padding: 1rem 2rem;
+}
+
+.modal-header {
+    padding: 1rem 2rem;
+}
+
+.modal-footer {
+    padding: 1rem 2rem;
 }
 
 

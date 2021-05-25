@@ -134,5 +134,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/pages/platform/devices/'
+MEDIA_URL = '/devices/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pages/platform/devices')
