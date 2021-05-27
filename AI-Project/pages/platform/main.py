@@ -10,18 +10,41 @@ import traceback
 # if "-debug" in sys.argv:
 #     sys.tracebacklimit = 1000
 # else:
-#     sys.tracebacklimit = 0
+#     
 
 PLUGINS = "./devices/"
+LOADED = []
+mods = []
 
-def reload():   
+def start():   
     try:
+        sys.tracebacklimit = 0
         do(PLUGINS, globals())
+        global mods
+        mods = get_module_names_in_dir(PLUGINS)
+        loadDevices()
     except:
         print("Error loading some devices")
         print("If needed, use -debug to print full trace")
+   
 
-mods = get_module_names_in_dir(PLUGINS)
+
+def loadDevices():
+    #reload()
+    error = []
+    global LOADED
+    LOADED = []
+    for val in mods:
+        try:    
+            module = getattr(sys.modules[__name__], val)
+            if hasattr(module,"lampget"):
+                print(module.lampget())
+                LOADED.append(module.lampget())
+        except:
+            error.append(val)
+            pass
+    #Later on: Add a popup on error
+    print("Error loading the following module:",error)
 
 
 # if(str(sys.argv[1]) == "-get"):
@@ -49,43 +72,28 @@ mods = get_module_names_in_dir(PLUGINS)
 
 
 def setSpecificDevice(id):
-    reload()
+    #reload()
     for val in mods:  
-        module = __import__(val)
+        module = getattr(sys.modules[__name__], val)
         if hasattr(module,"lampset"):
             if(str(id) == str(module.DEVICE_ID)):
                 print(module.lampset())
 
 def getSpecificDevice(id):
-    reload()
+    #reload()
     for val in mods:  
-        module = __import__(val)
+        module = getattr(sys.modules[__name__], val)
         if hasattr(module,"lampset"):
             if(str(id) == str(module.DEVICE_ID)):
                 print(module.lampget())
 
 def getDevices():
-    reload()
-    devices = []
-    error = []
-    for val in mods:
-        try:  
-            module = __import__(val)
-            if hasattr(module,"lampget"):
-                print(module.lampget())
-                devices.append(module.lampget())
-        except:
-            traceback.print_exc()
-            error.append(val)
-            pass
-    #Later on: Add a popup on error
-    print("Error loading the following module:",error)
-    return devices
+    return LOADED
 
 def setDevices(id):
-    reload()
+    #reload()
     for val in mods:  
-        module = __import__(val)
+        module = getattr(sys.modules[__name__], val)
         if hasattr(module,"lampset"):
             print(module.lampset())
 

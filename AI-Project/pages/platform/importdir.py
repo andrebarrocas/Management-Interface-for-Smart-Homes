@@ -45,6 +45,6 @@ def __do(path, env):
     sys.path.append(path) # adds provided directory to list we can import from
     for module_name in sorted(get_module_names_in_dir(path)): # for each found module...
         try:
-            env[module_name] = __import__(module_name)    
+            env[module_name] = __import__(module_name)  
         except:
-            pass          # ... import
+            pass 
