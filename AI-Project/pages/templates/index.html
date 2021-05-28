@@ -44,12 +44,14 @@
         type: "GET",
         timeout: 0,
       })
+    window.location = '/'
+
       if ($("#state-" + id).text() === "Off") {
       $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.9)");
       $("#state-" + id).text("On");
       $("#icon-" + id).removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
       $("#icon-" + id).css("color", " #cca300");
-    } else if ($("#state-" + id).text() === "On"){
+      } else if ($("#state-" + id).text() === "On"){
       $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.564)");
       $("#state-" + id).text("Off");
       $("#icon-" + id).removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
@@ -104,12 +106,41 @@
             <input type="file" name="document">
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Upload</button>
+          <button type="submit" name="action" class="btn btn-primary" value="upload">Upload</button>
         </form>  
         </div>
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">House Name</label>
+              <input type="text" class="form-control" value="{{ data|title }}" name="home_name" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Location</label>
+              <input type="text" class="form-control" name="city_name" value="{{ city|title }}" id="exampleInputEmail1" aria-describedby="emailHelp ">
+              <div id="emailHelp" class="form-text" >Your location is only used for forecast predictions</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" name="action" class="btn btn-primary" value="settings">Save</button>
+        </div>
+      </form>  
+      </div>
+    </div>
+  </div>
+
 
 
   <div class="settings">
@@ -117,13 +148,17 @@
       <button type="button" class="btn text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fas fa-plus"><div class="text">Add new device</div></i>
       </button>
+      <button type="button" class="btn text-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        <i class="fas fa-cog"><div class="text">Settings</div></i> 
+      </button>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-10">
-        <h1>Smart Home</h1>
-        <p class="intro">Welcome to your home interface. You currently have <b>{{devices|length}} devices.</b></p>
+        <h1>{{ data|title }}</h1>
+        <p class="intro"><span id="greeting">Welcome</span> to your home interface. You currently have <b>{{devices|length}} devices.</b><br>
+        Outside, the weather is {{ weather|title }}, with temperatures ranging from {{ minTemp}}ºC to {{ maxTemp }}ºC.</p>
       </div>
       <div class="col-2">
         <a href="#" id="changeAll"><i class="powericon fas fa-power-off"></i></a>

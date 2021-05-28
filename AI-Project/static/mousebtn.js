@@ -2,7 +2,15 @@ document.addEventListener('DOMContentLoaded', addListen, false);
 
 function addListen(){
     document.body.addEventListener("mousemove", hoverMouse($('.accessory')));
-
+    var time = new Date().getHours();
+    console.log(time);
+    if(time >= 6 && time <= 13) {
+      $('#greeting').text("Good morning, welcome ");
+    } else if (time > 13 && time <= 20) {
+      $('#greeting').text("Good afternoon, welcome ");
+    } else {
+      $('#greeting').text("Good night, welcome ");
+    }
   }
 
 
