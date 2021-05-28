@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', addListen, false);
 
 function addListen(){
-    document.body.addEventListener("mousemove", hoverMouse($('a')));
+    document.body.addEventListener("mousemove", hoverMouse($('.accessory')));
 
   }
 

@@ -75,6 +75,14 @@ i.icon {
     padding: 10px;
 }
 
+.all-btns {
+    background-color: rgba(255, 255, 255, 0.564);
+    height: 50px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+}
+
 a {
     text-decoration: none !important;
     color: black !important;
@@ -82,9 +90,6 @@ a {
 
 }
 
-.settings {
-   margin: 15px;
-}
 
 .upload-plugin {
     right: 30px;
@@ -127,9 +132,37 @@ a {
     padding: 1rem 2rem;
 }
 
+.intro {
+    margin-left: 0px;
+    color: white;
+}
+
+#changeAll {
+    position: relative;
+    display: inline;
+    bottom: -24%;
+}
+
+.powericon {
+    font-size: 29px;
+    color:rgba(255,255,255,0.564);
+}
 
 @media (max-width: 768px) { 
     .accessory {
         width: 100%;
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+
+    .powericon {
+        font-size: 26px;
+        color:white;
+    }
+
+    #changeAll {
+        left: 60%;
     }
  }

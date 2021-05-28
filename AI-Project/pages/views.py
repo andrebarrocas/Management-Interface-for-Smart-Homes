@@ -5,6 +5,7 @@ from .platform.main import *
 from django.core.files.storage import FileSystemStorage
 
 reset = True
+off = True
 
 def error404(request, exception):
     return redirect('home')
@@ -23,8 +24,21 @@ def homePageView(request,id=None):
         start()
         reset = False
     devices = getDevices()
-    if not None:
+    if id == 0:
+        global off
+        print(off)
+        if off:
+            turnAllOff()
+            off = False
+        else:
+            turnAllOn()
+            off = True
+        devices = loadStatus()
+        reset = True
+        return render(request=request, template_name='index.html', context={"devices": devices})
+    if id != None and id > 0:
         setSpecificDevice(id)
+        devices = loadStatus()
     if request.method == 'POST':
         uploaded_file = request.FILES['document']  
         fs = FileSystemStorage()

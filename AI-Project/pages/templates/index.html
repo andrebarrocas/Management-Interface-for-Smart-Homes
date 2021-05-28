@@ -1,19 +1,20 @@
 {% load static %}
 <script>
   function beautifyLamp(id) {
-    console.log($("#state-" + id).text())
-    if ($("#state-" + id).text() == "On") {
+    console.log($("#state-" + id))
+    if ($("#state-" + id).text() === "On") {
       $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.9)");
       $("#state-" + id).text("On");
       $("#icon-" + id).removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
       $("#icon-" + id).css("color", " #cca300");
-    } else {
+    } else if ($("#state-" + id).text() === "Off"){
       $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.564)");
       $("#state-" + id).text("Off");
       $("#icon-" + id).removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
       $("#icon-" + id).css("color", "black");
     }
   }
+
   function setFunc(id) {
     $("#action-" + id).on("click", function () {
       $.ajax({
@@ -21,9 +22,41 @@
         type: "GET",
         timeout: 0,
       })
-      beautifyLamp(id)
+      if ($("#state-" + id).text() === "Off") {
+      $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.9)");
+      $("#state-" + id).text("On");
+      $("#icon-" + id).removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
+      $("#icon-" + id).css("color", " #cca300");
+    } else if ($("#state-" + id).text() === "On"){
+      $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.564)");
+      $("#state-" + id).text("Off");
+      $("#icon-" + id).removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
+      $("#icon-" + id).css("color", "black");
+    }    
+  })
+  }
+
+  function changeAll() {
+    $("#changeAll").on("click", function () {
+      console.log("click");
+      $.ajax({
+        url: "{% url 'home' %}" + 0,
+        type: "GET",
+        timeout: 0,
+      })
+      if ($("#state-" + id).text() === "Off") {
+      $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.9)");
+      $("#state-" + id).text("On");
+      $("#icon-" + id).removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
+      $("#icon-" + id).css("color", " #cca300");
+    } else if ($("#state-" + id).text() === "On"){
+      $("#action-" + id).css("background-color", "rgba(255, 255, 255, 0.564)");
+      $("#state-" + id).text("Off");
+      $("#icon-" + id).removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
+      $("#icon-" + id).css("color", "black");
+    }    
     });
-  };
+  }
 </script>
 <!doctype html>
 <html lang="en">
@@ -87,9 +120,17 @@
     </div>
   </div>
   <div class="container">
-    <h1>Smart Home</h1>
+    <div class="row">
+      <div class="col-10">
+        <h1>Smart Home</h1>
+        <p class="intro">Welcome to your home interface. You currently have <b>{{devices|length}} devices.</b></p>
+      </div>
+      <div class="col-2">
+        <a href="#" id="changeAll"><i class="powericon fas fa-power-off"></i></a>
+        <script>changeAll()</script>
+      </div>
+    </div>
     <div class="row align-items-center">
-
       {% for d in devices %}
       <div class="col-6 col-md-2 p-2 d-flex">
         <a id="action-{{d.id}}" href="#" class="accessory ">
@@ -97,9 +138,9 @@
           <h5 id="state-{{d.id}}">{{ d.state|title }}</h5>
           <p>{{ d.name|title }}</p>
           <script>
-            console.log("{{ d.state|title }}")
-            beautifyLamp("{{d.id}}")
-            setFunc("{{d.id}}")
+            console.log("{{ d.state|title }}");
+            beautifyLamp("{{d.id}}");
+            setFunc("{{d.id}}");
           </script>
         </a>
       </div>
